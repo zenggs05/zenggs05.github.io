@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/22/Mastering%20Regression-%20Linear,%20Polynomial,%20and%20Ridge%20Methods%20Explained/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/22/Supervised-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/22/Mastering%20Regression-%20Linear,%20Polynomial,%20and%20Ridge%20Methods%20Explained/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2025/09/22/Supervised-Learning/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -187,8 +187,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2025-09-22 15:35:57" itemprop="dateCreated datePublished" datetime="2025-09-22T15:35:57+08:00">2025-09-22</time>
+              <time title="Created: 2025-09-22 15:53:49 / Modified: 15:55:01" itemprop="dateCreated datePublished" datetime="2025-09-22T15:53:49+08:00">2025-09-22</time>
             </span>
 
           
@@ -204,30 +205,152 @@
       
           <pre><code>---
 title: Regression Algorithm Trilogy: Complete Implementation from Linear to Ridge Regression
-tags: [machine learning]
-categories: [machine learning]
-index_img: D:\Blog\themes\next\source\images\machine learning.png
+author：Gaoshan Z
 date: 2025-9-22 15:30:07
 ---
 </code></pre>
-<p>Module 1: Linear Regression<br>Code Implementation</p>
-<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.linear_model import LinearRegression<br>from sklearn.metrics import mean_squared_error</p>
-<h1 id="Generate-synthetic-data"><a href="#Generate-synthetic-data" class="headerlink" title="Generate synthetic data"></a>Generate synthetic data</h1><p>np.random.seed(0)<br>X &#x3D; 2 * np.random.rand(100, 1)<br>y &#x3D; 4 + 3 * X + np.random.randn(100, 1)</p>
-<h1 id="Create-and-train-linear-regression-model"><a href="#Create-and-train-linear-regression-model" class="headerlink" title="Create and train linear regression model"></a>Create and train linear regression model</h1><p>lin_reg &#x3D; LinearRegression()<br>lin_reg.fit(X, y)</p>
-<h1 id="Predictions"><a href="#Predictions" class="headerlink" title="Predictions"></a>Predictions</h1><p>X_new &#x3D; np.array([[0], [2]])<br>y_predict &#x3D; lin_reg.predict(X_new)</p>
-<h1 id="Calculate-mean-squared-error"><a href="#Calculate-mean-squared-error" class="headerlink" title="Calculate mean squared error"></a>Calculate mean squared error</h1><p>y_pred &#x3D; lin_reg.predict(X)<br>mse &#x3D; mean_squared_error(y, y_pred)<br>print(“Mean Squared Error:”, mse)</p>
-<h1 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y)<br>plt.plot(X_new, y_predict, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Linear Regression’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Data Generation:<br>Generated 100 random sample points using numpy<br>Linear relationship: y &#x3D; 4 + 3X + noise<br>Noise follows standard normal distribution<br>Model Training:<br>LinearRegression() creates linear regression model<br>fit() method trains the model<br>Model learns parameters: intercept and slope<br>Prediction &amp; Evaluation:<br>predict() method makes predictions on new data<br>Mean Squared Error (MSE) evaluates model performance<br>Lower MSE indicates better model fit<br>Visualization:<br>Scatter plot shows original data<br>Red line displays fitted results<br>Line effectively captures data trend<br>Module 2: Polynomial Regression<br>Code Implementation</p>
-<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.preprocessing import PolynomialFeatures<br>from sklearn.linear_model import LinearRegression<br>from sklearn.pipeline import make_pipeline</p>
-<h1 id="Generate-non-linear-data"><a href="#Generate-non-linear-data" class="headerlink" title="Generate non-linear data"></a>Generate non-linear data</h1><p>np.random.seed(0)<br>X &#x3D; np.random.rand(100, 1) * 10<br>y &#x3D; np.sin(X) + np.random.randn(100, 1) * 0.1</p>
-<h1 id="Create-polynomial-regression-model-10th-degree"><a href="#Create-polynomial-regression-model-10th-degree" class="headerlink" title="Create polynomial regression model (10th degree)"></a>Create polynomial regression model (10th degree)</h1><p>model &#x3D; make_pipeline(<br>    PolynomialFeatures(degree&#x3D;10),<br>    LinearRegression()<br>)<br>model.fit(X, y)</p>
-<h1 id="Generate-smooth-curve-for-plotting"><a href="#Generate-smooth-curve-for-plotting" class="headerlink" title="Generate smooth curve for plotting"></a>Generate smooth curve for plotting</h1><p>X_fit &#x3D; np.linspace(0, 10, 100)[:, np.newaxis]<br>y_fit &#x3D; model.predict(X_fit)</p>
-<h1 id="Visualization-1"><a href="#Visualization-1" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y, s&#x3D;10)<br>plt.plot(X_fit, y_fit, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Polynomial Regression (degree&#x3D;10)’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Data Generation:<br>Generated non-linear data: y &#x3D; sin(X) + noise<br>Gaussian noise with standard deviation 0.1<br>Data range: X in [0, 10] interval<br>Feature Transformation:<br>PolynomialFeatures(degree&#x3D;10) converts features to 10th-degree polynomial<br>Example: X → [1, X, X², …, X¹⁰]<br>Increases model complexity to fit non-linear relationships<br>Model Training:<br>Uses pipeline to combine feature transformation and linear regression<br>Model learns polynomial coefficients<br>High-degree polynomial can fit complex curves<br>Overfitting Risk:<br>10th-degree polynomial is overly complex and prone to overfitting<br>Especially problematic with small datasets or high noise<br>Visualization shows excessive curve fluctuations<br>Module 3: Ridge Regression<br>Code Implementation</p>
-<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.preprocessing import PolynomialFeatures<br>from sklearn.linear_model import Ridge<br>from sklearn.pipeline import make_pipeline</p>
-<h1 id="Use-same-data-as-polynomial-regression"><a href="#Use-same-data-as-polynomial-regression" class="headerlink" title="Use same data as polynomial regression"></a>Use same data as polynomial regression</h1><p>np.random.seed(0)<br>X &#x3D; np.random.rand(100, 1) * 10<br>y &#x3D; np.sin(X) + np.random.randn(100, 1) * 0.1</p>
-<h1 id="Create-Ridge-regression-model-10th-degree-L2-regularization"><a href="#Create-Ridge-regression-model-10th-degree-L2-regularization" class="headerlink" title="Create Ridge regression model (10th degree + L2 regularization)"></a>Create Ridge regression model (10th degree + L2 regularization)</h1><p>model &#x3D; make_pipeline(<br>    PolynomialFeatures(degree&#x3D;10),<br>    Ridge(alpha&#x3D;1.0)<br>)<br>model.fit(X, y)</p>
-<h1 id="Generate-smooth-curve-for-plotting-1"><a href="#Generate-smooth-curve-for-plotting-1" class="headerlink" title="Generate smooth curve for plotting"></a>Generate smooth curve for plotting</h1><p>X_fit &#x3D; np.linspace(0, 10, 100)[:, np.newaxis]<br>y_fit &#x3D; model.predict(X_fit)</p>
-<h1 id="Calculate-mean-squared-error-1"><a href="#Calculate-mean-squared-error-1" class="headerlink" title="Calculate mean squared error"></a>Calculate mean squared error</h1><p>y_pred &#x3D; model.predict(X)<br>mse &#x3D; mean_squared_error(y, y_pred)<br>print(“Mean Squared Error:”, mse)</p>
-<h1 id="Visualization-2"><a href="#Visualization-2" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y, s&#x3D;10)<br>plt.plot(X_fit, y_fit, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Ridge Regression (degree&#x3D;10, alpha&#x3D;1.0)’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Basic Setup:<br>Uses same data as polynomial regression<br>Same 10th-degree polynomial features<br>Difference: Ridge regression instead of standard linear regression<br>Regularization:<br>Ridge(alpha&#x3D;1.0) creates Ridge regression model<br>alpha&#x3D;1.0 is regularization strength parameter<br>L2 regularization penalizes large coefficients to prevent overfitting<br>Regularization Effect:<br>Despite using 10th-degree features, Ridge regression penalizes large coefficients<br>Makes model smoother and prevents overfitting<br>Visualization shows smoother results than standard polynomial regression<br>Evaluation:<br>Mean squared error evaluates model performance<br>Ridge regression typically has better generalization than standard polynomial regression</p>
+<p><strong>Module 1: Linear Regression</strong></p>
+<p>Code Implementation</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+# Generate synthetic data
+np.random.seed(0)
+X = 2 * np.random.rand(100, 1)
+y = 4 + 3 * X + np.random.randn(100, 1)
+
+# Create and train linear regression model
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
+
+# Predictions
+X_new = np.array([[0], [2]])
+y_predict = lin_reg.predict(X_new)
+
+# Calculate mean squared error
+y_pred = lin_reg.predict(X)
+mse = mean_squared_error(y, y_pred)
+print(&quot;Mean Squared Error:&quot;, mse)
+
+# Visualization
+plt.scatter(X, y)
+plt.plot(X_new, y_predict, &#39;r-&#39;, linewidth=2)
+plt.title(&#39;Linear Regression&#39;)
+plt.xlabel(&#39;X&#39;)
+plt.ylabel(&#39;y&#39;)
+plt.show()
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li><p><em>Data Generation:</em><br>Generated 100 random sample points using numpy</p>
+</li>
+<li><p><em>Linear relationship:</em> y &#x3D; 4 + 3X + noise<br>Noise follows standard normal distribution</p>
+</li>
+<li><p><em>Model Training:</em><br>LinearRegression() creates linear regression model<br>fit() method trains the model</p>
+</li>
+<li><p><em>Model learns parameters:</em> intercept and slope</p>
+</li>
+<li><p><em>Prediction &amp; Evaluation:</em><br>predict() method makes predictions on new data<br>Mean Squared Error (MSE) evaluates model performance<br>Lower MSE indicates better model fit</p>
+</li>
+<li><p><em>Visualization:</em><br>Scatter plot shows original data<br>Red line displays fitted results<br>Line effectively captures data trend</p>
+</li>
+</ul>
+<p><strong>Module 2: Polynomial Regression</strong></p>
+<p>Code Implementation</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+# Generate non-linear data
+np.random.seed(0)
+X = np.random.rand(100, 1) * 10
+y = np.sin(X) + np.random.randn(100, 1) * 0.1
+
+# Create polynomial regression model (10th degree)
+model = make_pipeline(
+PolynomialFeatures(degree=10),
+LinearRegression()
+)
+model.fit(X, y)
+
+# Generate smooth curve for plotting
+X_fit = np.linspace(0, 10, 100)[:, np.newaxis]
+y_fit = model.predict(X_fit)
+
+# Visualization
+plt.scatter(X, y, s=10)
+plt.plot(X_fit, y_fit, &#39;r-&#39;, linewidth=2)
+plt.title(&#39;Polynomial Regression (degree=10)&#39;)
+plt.xlabel(&#39;X&#39;)
+plt.ylabel(&#39;y&#39;)
+plt.show()
+</code></pre>
+<p><strong>Explanation</strong><br>Data Generation:</p>
+<ul>
+<li><p>Generated non-linear data: y &#x3D; sin(X) + noise<br>Gaussian noise with standard deviation 0.1<br>Data range: X in [0, 10] interval</p>
+</li>
+<li><p>Feature Transformation:<br>PolynomialFeatures(degree&#x3D;10) converts features to 10th-degree polynomial</p>
+</li>
+<li><p>Example: X → [1, X, X², …, X¹⁰]<br>Increases model complexity to fit non-linear relationships</p>
+</li>
+<li><p>Model Training:<br>Uses pipeline to combine feature transformation and linear regression<br>Model learns polynomial coefficients<br>High-degree polynomial can fit complex curves</p>
+</li>
+<li><p>Overfitting Risk:<br>10th-degree polynomial is overly complex and prone to overfitting<br>Especially problematic with small datasets or high noise<br>Visualization shows excessive curve fluctuations</p>
+</li>
+</ul>
+<p><strong>MODULE 3: RIDGE REGRESSION</strong></p>
+<p>Code Implementation</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import Ridge
+from sklearn.pipeline import make_pipeline
+
+# Use same data as polynomial regression
+np.random.seed(0)
+X = np.random.rand(100, 1) * 10
+y = np.sin(X) + np.random.randn(100, 1) * 0.1
+
+# Create Ridge regression model (10th degree + L2 regularization)
+model = make_pipeline(
+PolynomialFeatures(degree=10),
+Ridge(alpha=1.0)
+)
+model.fit(X, y)
+
+# Generate smooth curve for plotting
+X_fit = np.linspace(0, 10, 100)[:, np.newaxis]
+y_fit = model.predict(X_fit)
+
+# Calculate mean squared error
+y_pred = model.predict(X)
+mse = mean_squared_error(y, y_pred)
+print(&quot;Mean Squared Error:&quot;, mse)
+
+# Visualization
+plt.scatter(X, y, s=10)
+plt.plot(X_fit, y_fit, &#39;r-&#39;, linewidth=2)
+plt.title(&#39;Ridge Regression (degree=10, alpha=1.0)&#39;)
+plt.xlabel(&#39;X&#39;)
+plt.ylabel(&#39;y&#39;)
+plt.show()
+</code></pre>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a><strong>Explanation</strong></h2><ul>
+<li><p><em>Basic Setup:</em><br>Uses same data as polynomial regression<br>Same 10th-degree polynomial features</p>
+</li>
+<li><p><em>Difference:</em> Ridge regression instead of standard linear regression</p>
+</li>
+<li><p><em>Regularization:</em><br>Ridge(alpha&#x3D;1.0) creates Ridge regression model<br>alpha&#x3D;1.0 is regularization strength parameter<br>L2 regularization penalizes large coefficients to prevent overfitting</p>
+</li>
+<li><p><em>Regularization Effect:</em><br>Despite using 10th-degree features, Ridge regression penalizes large coefficients<br>Makes model smoother and prevents overfitting<br>Visualization shows smoother results than standard polynomial regression</p>
+</li>
+<li><p><em>Evaluation:</em><br>Mean squared error evaluates model performance<br>Ridge regression typically has better generalization than standard polynomial regression</p>
+</li>
+</ul>
 
       
     </div>
@@ -349,7 +472,7 @@ date: 2025-9-22 15:30:07
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count"> blog site has a total of 641 Word </span>
+  <span class="post-count"> blog site has a total of 671 Word </span>
 </div>
 
 
