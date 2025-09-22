@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/22/Mastering%20Regression-%20Linear,%20Polynomial,%20and%20Ridge%20Methods%20Explained/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2025/09/22/Mastering%20Regression-%20Linear,%20Polynomial,%20and%20Ridge%20Methods%20Explained/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -188,7 +188,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2025-09-22 10:48:59" itemprop="dateCreated datePublished" datetime="2025-09-22T10:48:59+08:00">2025-09-22</time>
+              <time title="Created: 2025-09-22 15:35:57" itemprop="dateCreated datePublished" datetime="2025-09-22T15:35:57+08:00">2025-09-22</time>
             </span>
 
           
@@ -202,19 +202,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <pre><code>---
+title: Regression Algorithm Trilogy: Complete Implementation from Linear to Ridge Regression
+tags: [machine learning]
+categories: [machine learning]
+index_img: D:\Blog\themes\next\source\images\machine learning.png
+date: 2025-9-22 15:30:07
+---
+</code></pre>
+<p>Module 1: Linear Regression<br>Code Implementation</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.linear_model import LinearRegression<br>from sklearn.metrics import mean_squared_error</p>
+<h1 id="Generate-synthetic-data"><a href="#Generate-synthetic-data" class="headerlink" title="Generate synthetic data"></a>Generate synthetic data</h1><p>np.random.seed(0)<br>X &#x3D; 2 * np.random.rand(100, 1)<br>y &#x3D; 4 + 3 * X + np.random.randn(100, 1)</p>
+<h1 id="Create-and-train-linear-regression-model"><a href="#Create-and-train-linear-regression-model" class="headerlink" title="Create and train linear regression model"></a>Create and train linear regression model</h1><p>lin_reg &#x3D; LinearRegression()<br>lin_reg.fit(X, y)</p>
+<h1 id="Predictions"><a href="#Predictions" class="headerlink" title="Predictions"></a>Predictions</h1><p>X_new &#x3D; np.array([[0], [2]])<br>y_predict &#x3D; lin_reg.predict(X_new)</p>
+<h1 id="Calculate-mean-squared-error"><a href="#Calculate-mean-squared-error" class="headerlink" title="Calculate mean squared error"></a>Calculate mean squared error</h1><p>y_pred &#x3D; lin_reg.predict(X)<br>mse &#x3D; mean_squared_error(y, y_pred)<br>print(“Mean Squared Error:”, mse)</p>
+<h1 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y)<br>plt.plot(X_new, y_predict, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Linear Regression’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Data Generation:<br>Generated 100 random sample points using numpy<br>Linear relationship: y &#x3D; 4 + 3X + noise<br>Noise follows standard normal distribution<br>Model Training:<br>LinearRegression() creates linear regression model<br>fit() method trains the model<br>Model learns parameters: intercept and slope<br>Prediction &amp; Evaluation:<br>predict() method makes predictions on new data<br>Mean Squared Error (MSE) evaluates model performance<br>Lower MSE indicates better model fit<br>Visualization:<br>Scatter plot shows original data<br>Red line displays fitted results<br>Line effectively captures data trend<br>Module 2: Polynomial Regression<br>Code Implementation</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.preprocessing import PolynomialFeatures<br>from sklearn.linear_model import LinearRegression<br>from sklearn.pipeline import make_pipeline</p>
+<h1 id="Generate-non-linear-data"><a href="#Generate-non-linear-data" class="headerlink" title="Generate non-linear data"></a>Generate non-linear data</h1><p>np.random.seed(0)<br>X &#x3D; np.random.rand(100, 1) * 10<br>y &#x3D; np.sin(X) + np.random.randn(100, 1) * 0.1</p>
+<h1 id="Create-polynomial-regression-model-10th-degree"><a href="#Create-polynomial-regression-model-10th-degree" class="headerlink" title="Create polynomial regression model (10th degree)"></a>Create polynomial regression model (10th degree)</h1><p>model &#x3D; make_pipeline(<br>    PolynomialFeatures(degree&#x3D;10),<br>    LinearRegression()<br>)<br>model.fit(X, y)</p>
+<h1 id="Generate-smooth-curve-for-plotting"><a href="#Generate-smooth-curve-for-plotting" class="headerlink" title="Generate smooth curve for plotting"></a>Generate smooth curve for plotting</h1><p>X_fit &#x3D; np.linspace(0, 10, 100)[:, np.newaxis]<br>y_fit &#x3D; model.predict(X_fit)</p>
+<h1 id="Visualization-1"><a href="#Visualization-1" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y, s&#x3D;10)<br>plt.plot(X_fit, y_fit, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Polynomial Regression (degree&#x3D;10)’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Data Generation:<br>Generated non-linear data: y &#x3D; sin(X) + noise<br>Gaussian noise with standard deviation 0.1<br>Data range: X in [0, 10] interval<br>Feature Transformation:<br>PolynomialFeatures(degree&#x3D;10) converts features to 10th-degree polynomial<br>Example: X → [1, X, X², …, X¹⁰]<br>Increases model complexity to fit non-linear relationships<br>Model Training:<br>Uses pipeline to combine feature transformation and linear regression<br>Model learns polynomial coefficients<br>High-degree polynomial can fit complex curves<br>Overfitting Risk:<br>10th-degree polynomial is overly complex and prone to overfitting<br>Especially problematic with small datasets or high noise<br>Visualization shows excessive curve fluctuations<br>Module 3: Ridge Regression<br>Code Implementation</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt<br>from sklearn.preprocessing import PolynomialFeatures<br>from sklearn.linear_model import Ridge<br>from sklearn.pipeline import make_pipeline</p>
+<h1 id="Use-same-data-as-polynomial-regression"><a href="#Use-same-data-as-polynomial-regression" class="headerlink" title="Use same data as polynomial regression"></a>Use same data as polynomial regression</h1><p>np.random.seed(0)<br>X &#x3D; np.random.rand(100, 1) * 10<br>y &#x3D; np.sin(X) + np.random.randn(100, 1) * 0.1</p>
+<h1 id="Create-Ridge-regression-model-10th-degree-L2-regularization"><a href="#Create-Ridge-regression-model-10th-degree-L2-regularization" class="headerlink" title="Create Ridge regression model (10th degree + L2 regularization)"></a>Create Ridge regression model (10th degree + L2 regularization)</h1><p>model &#x3D; make_pipeline(<br>    PolynomialFeatures(degree&#x3D;10),<br>    Ridge(alpha&#x3D;1.0)<br>)<br>model.fit(X, y)</p>
+<h1 id="Generate-smooth-curve-for-plotting-1"><a href="#Generate-smooth-curve-for-plotting-1" class="headerlink" title="Generate smooth curve for plotting"></a>Generate smooth curve for plotting</h1><p>X_fit &#x3D; np.linspace(0, 10, 100)[:, np.newaxis]<br>y_fit &#x3D; model.predict(X_fit)</p>
+<h1 id="Calculate-mean-squared-error-1"><a href="#Calculate-mean-squared-error-1" class="headerlink" title="Calculate mean squared error"></a>Calculate mean squared error</h1><p>y_pred &#x3D; model.predict(X)<br>mse &#x3D; mean_squared_error(y, y_pred)<br>print(“Mean Squared Error:”, mse)</p>
+<h1 id="Visualization-2"><a href="#Visualization-2" class="headerlink" title="Visualization"></a>Visualization</h1><p>plt.scatter(X, y, s&#x3D;10)<br>plt.plot(X_fit, y_fit, ‘r-‘, linewidth&#x3D;2)<br>plt.title(‘Ridge Regression (degree&#x3D;10, alpha&#x3D;1.0)’)<br>plt.xlabel(‘X’)<br>plt.ylabel(‘y’)<br>plt.show()<br>Explanation<br>Basic Setup:<br>Uses same data as polynomial regression<br>Same 10th-degree polynomial features<br>Difference: Ridge regression instead of standard linear regression<br>Regularization:<br>Ridge(alpha&#x3D;1.0) creates Ridge regression model<br>alpha&#x3D;1.0 is regularization strength parameter<br>L2 regularization penalizes large coefficients to prevent overfitting<br>Regularization Effect:<br>Despite using 10th-degree features, Ridge regression penalizes large coefficients<br>Makes model smoother and prevents overfitting<br>Visualization shows smoother results than standard polynomial regression<br>Evaluation:<br>Mean squared error evaluates model performance<br>Ridge regression typically has better generalization than standard polynomial regression</p>
 
       
     </div>
@@ -336,7 +349,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count"> blog site has a total of 75 Word </span>
+  <span class="post-count"> blog site has a total of 641 Word </span>
 </div>
 
 
